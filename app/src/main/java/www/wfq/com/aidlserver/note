@@ -1,0 +1,13 @@
+使用步骤：
+新建aidl文件夹
+    新建Book.aidl文件
+    在aidl文件夹下面新建pojo:Book,这时会报错，回到Book.aidl文件修改内容为：parcelable Book;然后rebuild
+    这时Book实体类错误消失
+
+    新建IBookController.aidl作为一个接口来实现Controller的功能，注意：这里如果要使用Book实体类的话
+    要手动导包
+
+    新建BookService文件用于远程服务
+
+    在清单文件中注册服务的时候使用intent-filter的形式进行注册，exported设为true,意思是允许其他进程访问，
+    也可以将enabled设置为true,意思是允许开机就启动这个服务
